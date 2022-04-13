@@ -8,7 +8,7 @@
     tools:context=".presentation.MainActivity">
 
 
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/textViewLogo"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="100dp"
@@ -25,9 +25,10 @@
         app:layout_constraintBottom_toTopOf="@id/recyclerViewShopList"/>
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/minLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Всего покупок: 1"
+        android:text="@string/size_shop"
         app:layout_constraintTop_toBottomOf="@id/textViewLogo"
         app:layout_constraintStart_toStartOf="@id/textViewLogo"
         app:layout_constraintEnd_toEndOf="@id/textViewLogo"/>
@@ -37,7 +38,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_shop"
         app:layout_constraintTop_toBottomOf="@id/textViewLogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
