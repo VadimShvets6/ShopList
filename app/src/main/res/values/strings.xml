@@ -3,4 +3,7 @@
     <string name="size_shop">Всего покупок: %s</string>
     <string name="lable_logo">Список покупок</string>
     <string name="add_new_item">add New Item</string>
+    <string name="edit_text_name">Name</string>
+    <string name="edit_text_hint_amount">Amount</string>
+    <string name="button_text">Save</string>
 </resources>
