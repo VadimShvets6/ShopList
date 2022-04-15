@@ -18,7 +18,7 @@
         android:fontFamily="@font/roboto"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:text="Список покупок"
+        android:text="@string/lable_logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +50,7 @@
         android:layout_marginBottom="40dp"
         android:src="@drawable/ic_add"
         android:clickable="true"
+        android:contentDescription="@string/add_new_item"
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
