@@ -6,4 +6,6 @@
     <string name="edit_text_name">Name</string>
     <string name="edit_text_hint_amount">Amount</string>
     <string name="button_text">Save</string>
+    <string name="error_input_count">Invalid count</string>
+    <string name="error_input_name">Invalid name</string>
 </resources>

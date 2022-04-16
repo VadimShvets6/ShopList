@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoplist.R
 import com.example.shoplist.domain.ShopItem
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textview.MaterialTextView
 import org.w3c.dom.Text
 import java.util.*
@@ -18,25 +19,30 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
-    private lateinit var adapterRV : ShopItemAdapter
+    private lateinit var adapterRV: ShopItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         setupRecyclerView()
-        viewModel.shopList.observe(this){
+        viewModel.shopList.observe(this) {
             adapterRV.submitList(it)
+        }
+        val buttonAddItem = findViewById<FloatingActionButton>(R.id.button_add_item)
+        buttonAddItem.setOnClickListener {
+            val intent = ShopItemActivity.newIntentAddItem(this)
+            startActivity(intent)
         }
     }
 
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         val rvShopList = findViewById<RecyclerView>(R.id.recyclerViewShopList)
         adapterRV = ShopItemAdapter()
         with(rvShopList) {
             adapter = adapterRV
-           recycledViewPool.setMaxRecycledViews(
+            recycledViewPool.setMaxRecycledViews(
                 ShopItemAdapter.VIEW_TYPE_ENABLED,
                 ShopItemAdapter.MAX_POOL_SIZE
             )
@@ -71,7 +77,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupOnClickListener() {
         adapterRV.onShopItemClickListener = {
-            Log.d("Test", it.toString())
+            val intent = ShopItemActivity.newIntentEditItem(this, it.id)
+            startActivity(intent)
         }
     }
 
